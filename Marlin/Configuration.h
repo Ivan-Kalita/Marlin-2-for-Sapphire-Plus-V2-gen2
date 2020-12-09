@@ -35,7 +35,7 @@
  *
  * Advanced settings can be found in Configuration_adv.h
  */
-#define CONFIGURATION_H_VERSION 020008
+#define CONFIGURATION_H_VERSION 020009
 
 //===========================================================================
 //============================= Getting Started =============================
@@ -70,7 +70,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(khunpoum, SapphirePlus)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(Ivan-Kalita, SapphirePlus)" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -131,7 +131,7 @@
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "TwoTrees Sapphire Plus"
+#define CUSTOM_MACHINE_NAME "2Trees Sapphire Plus (gen2)"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -501,9 +501,9 @@
   #else
     // for auto calibration hotend temp on 250C execute "M303 E0 S250 C8 U" and "M500" for save in EEPROM
     //    also you can set fan speed for example 30% before calibration process "M106 S76"
-    #define DEFAULT_Kp  10.32
-    #define DEFAULT_Ki   0.51
-    #define DEFAULT_Kd  52.55
+    #define DEFAULT_Kp  8.1
+    #define DEFAULT_Ki  0.36
+    #define DEFAULT_Kd  46.0
   #endif
 #endif // PIDTEMP
 
@@ -544,9 +544,9 @@
   // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
 
   // for auto calibration bed temp on 70C execute "M303 E-1 S70 C8 U" and "M500" for save in EEPROM
-  #define DEFAULT_bedKp 71.04
-  #define DEFAULT_bedKi 12.31
-  #define DEFAULT_bedKd 273.33
+  #define DEFAULT_bedKp 45
+  #define DEFAULT_bedKi 8
+  #define DEFAULT_bedKd 150
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -879,8 +879,8 @@
  * Use G29 repeatedly, adjusting the Z height at each point with movement commands
  * or (with LCD_BED_LEVELING) the LCD controller.
  */
-//#define PROBE_MANUALLY
-//#define MANUAL_PROBE_START_Z 0.2
+#define PROBE_MANUALLY
+#define MANUAL_PROBE_START_Z 0.2
 
 /**
  * A Fix-Mounted Probe either doesn't deploy or needs manual deployment.
@@ -1173,7 +1173,7 @@
  * RAMPS-based boards use SERVO3_PIN for the first runout sensor.
  * For other boards you may need to define FIL_RUNOUT_PIN, FIL_RUNOUT2_PIN, etc.
  */
-//#define FILAMENT_RUNOUT_SENSOR
+#define FILAMENT_RUNOUT_SENSOR
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
   #define FIL_RUNOUT_ENABLED_DEFAULT true // Enable the sensor on startup. Override with M412 followed by M500.
   #define NUM_RUNOUT_SENSORS   1          // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
@@ -1345,12 +1345,12 @@
  * Add a bed leveling sub-menu for ABL or MBL.
  * Include a guided procedure if manual probing is enabled.
  */
-//#define LCD_BED_LEVELING
+#define LCD_BED_LEVELING
 
 #if ENABLED(LCD_BED_LEVELING)
   #define MESH_EDIT_Z_STEP  0.025 // (mm) Step size while manually probing Z axis.
   #define LCD_PROBE_Z_RANGE 4     // (mm) Z Range centered on Z_MIN_POS for LCD Z adjustment
-  //#define MESH_EDIT_MENU        // Add a menu to edit mesh points
+  #define MESH_EDIT_MENU        // Add a menu to edit mesh points
 #endif
 
 // Add a menu item to move between bed corners for manual bed adjustment
