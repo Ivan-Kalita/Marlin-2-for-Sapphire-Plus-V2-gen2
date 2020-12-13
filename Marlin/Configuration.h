@@ -131,7 +131,7 @@
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "2Trees Sapphire Plus (gen2)"
+#define CUSTOM_MACHINE_NAME "Sapphire Plus"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -501,8 +501,8 @@
   #else
     // for auto calibration hotend temp on 250C execute "M303 E0 S250 C8 U" and "M500" for save in EEPROM
     //    also you can set fan speed for example 30% before calibration process "M106 S76"
-    #define DEFAULT_Kp  8.1
-    #define DEFAULT_Ki  0.36
+    #define DEFAULT_Kp  7.8
+    #define DEFAULT_Ki  0.33
     #define DEFAULT_Kd  46.0
   #endif
 #endif // PIDTEMP
@@ -544,9 +544,9 @@
   // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
 
   // for auto calibration bed temp on 70C execute "M303 E-1 S70 C8 U" and "M500" for save in EEPROM
-  #define DEFAULT_bedKp 45
-  #define DEFAULT_bedKi 8
-  #define DEFAULT_bedKd 150
+  #define DEFAULT_bedKp 69.5
+  #define DEFAULT_bedKi 10.57
+  #define DEFAULT_bedKd 304.3
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -745,14 +745,14 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 410 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 415 }
 
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 300, 300, 5, 70 }
+#define DEFAULT_MAX_FEEDRATE          { 300, 300, 10, 70 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -781,8 +781,8 @@
  *   M204 T    Travel Acceleration
  */
 #define DEFAULT_ACCELERATION          1000    // X, Y, Z and E acceleration for printing moves
-#define DEFAULT_RETRACT_ACCELERATION  1000    // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION   1000    // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_RETRACT_ACCELERATION  2000    // E acceleration for retracts
+#define DEFAULT_TRAVEL_ACCELERATION   1500    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
  * Default Jerk limits (mm/s)
